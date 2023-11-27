@@ -6,6 +6,10 @@ add_library(StraitXJson
 	"./sources/json/json.cpp"
 )
 
+target_include_directories(StraitXJson 
+	PUBLIC "./sources"
+)
+
 target_link_libraries(StraitXJson
 	PUBLIC StraitXCore
 	PUBLIC nlohmann_json
