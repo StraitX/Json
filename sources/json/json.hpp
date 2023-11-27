@@ -37,13 +37,13 @@ namespace Details {
 	template<typename T>
 	struct IsJsonKey {
 		
-		template<typename _T>
+		template<typename _T, typename To = void, typename From = void>
 		static constexpr bool IsKey(...) {
 			return false;
 		}
 
-		template<typename _T>
-		static constexpr bool IsKey(decltype(ToJsonKey(Declval<_T>()))*) {
+		template<typename _T, typename To = decltype(ToJsonKey(Declval<_T>())), typename From = decltype(FromJsonKey<_T>(Declval<std::string>()))>
+		static constexpr bool IsKey(void*) {
 			return true;
 		}
 
