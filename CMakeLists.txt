@@ -14,3 +14,9 @@ target_link_libraries(StraitXJson
 	PUBLIC StraitXCore
 	PUBLIC nlohmann_json
 )
+
+add_executable(StraitXJson-Tests
+	"./tests/basic.cpp"
+)
+
+target_link_libraries(StraitXJson-Tests PUBLIC StraitXJson)
